@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Bootstrap@ http://getbootstrap.com/
+${licensePrefix}Glyphicon@ http://glyphicons.com/
+<#if licenseLast??>
+${licenseLast}
+</#if>
