@@ -10,3 +10,5 @@ nbproject/private/*
 build/*
 
 *.class
+
+nbproject/private/private.xml
