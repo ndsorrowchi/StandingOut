@@ -4,11 +4,14 @@
         <servlet-name>submitphoto</servlet-name>
         <servlet-class>com.hw6.submitphoto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImgHandler</servlet-name>
+        <servlet-class>servlets.ImgHandler</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>submitphoto</servlet-name>
         <url-pattern>/submitphoto</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>photoGallery</servlet-name>
         <servlet-class>com.hw6.photoGallery</servlet-class>
@@ -16,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>photoGallery</servlet-name>
         <url-pattern>/photoGallery</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImgHandler</servlet-name>
+        <url-pattern>/ImgHandler</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
