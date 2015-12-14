@@ -6,7 +6,7 @@ nbproject/private/private.properties
 
 nbproject/private/*
 
-!*.class
 
+build/*
 
 *.class
