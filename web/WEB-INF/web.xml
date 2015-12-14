@@ -35,6 +35,7 @@
     <servlet-mapping>
         <servlet-name>updateMessage</servlet-name>
         <url-pattern>/updateMessage</url-pattern>
+    </servlet-mapping>        
     <servlet-mapping>
         <servlet-name>ImgHandler</servlet-name>
         <url-pattern>/ImgHandler</url-pattern>
