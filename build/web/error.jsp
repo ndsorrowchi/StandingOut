@@ -30,7 +30,7 @@
             </div>
             <div class="col-sm-6">
                 <h3 class="text-center text-danger" style="margin-top:50%;"><%=errmsg%></h3>
-                <h4>redirecting to login...</h4>
+                <h4 class="text-center text-warning">redirecting to login...</h4>
             </div>
             <div class="col-sm-1"></div>
         </div>

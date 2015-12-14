@@ -26,7 +26,7 @@
             <a class="navbar-brand" href="#mynav">StandingOut</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
                 <li><a href="x.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                 <li><a href="x.html"><span class="glyphicon glyphicon-info-sign"></span>How to make good Resume</a></li>
                 <li><a href="x.html"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>

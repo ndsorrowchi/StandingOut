@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
            
             String usr=request.getParameter("username");
-            String pwd=request.getParameter("passowrd");
+            String pwd=request.getParameter("password");
             String alias="";
             String dbpwd="";
             RequestDispatcher rderr = getServletContext().getRequestDispatcher("/error.jsp");
@@ -63,7 +63,7 @@ public class Login extends HttpServlet {
                     alias=sqlres.getString(2);
                     count++;
                 }
-                if(count!=0 && pwd.equals("dbpwd"))
+                if(count!=0 && pwd.equals(dbpwd))
                 {
                     userbean msb=new userbean();
                     msb.setUid(usr);
