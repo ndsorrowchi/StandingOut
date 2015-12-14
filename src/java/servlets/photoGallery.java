@@ -45,13 +45,6 @@ public class photoGallery extends HttpServlet {
             messageConn = DriverManager.getConnection(connectionURL, "test", "test");
             messages = messageConn.createStatement();
             
-            
-            userbean msb=null;
-            HttpSession session=request.getSession(false);
-            if(session != null) { 
-                msb = (userbean)session.getAttribute("usrbn");
-            }
-            
         } catch (ClassNotFoundException cnfe) {
             cnfe.printStackTrace();
         } catch (SQLException se) {
@@ -89,12 +82,13 @@ public class photoGallery extends HttpServlet {
         String q1 = new String("SELECT * FROM TEST.MESSAGES where PHOTOID = " + photoid);
         
         System.out.println(q1);
-        ArrayList messagesArr = new ArrayList();
         ArrayList Rows = new ArrayList();
 
         try {
             messagesRS = messages.executeQuery(q1);
             while (messagesRS.next()) {
+                ArrayList messagesArr = new ArrayList();
+
                 for (int i = 1; i <= 5; i++) {
                     System.out.println(messagesRS.getString(i));
                     messagesArr.add(messagesRS.getString(i));

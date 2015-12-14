@@ -23,10 +23,8 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
         <!-- Latest compiled and minified CSS -->
         <!-- Optional theme -->
         <script src="include/js/jquery-2.1.3.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
         <script src="include/js/bootstrap.min.js"></script>
         <script src="include/js/gallery.js" ></script>
@@ -70,6 +68,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                             int i = 0;
                             while (i < rows.size()) {
                                 ArrayList row = (ArrayList) rows.get(i);
+                               
                                 out.print("<tr id='" + row.get(0) + "-" + i + "'>");
                                 out.print("<td class='col-lg-6'>");
 
@@ -80,9 +79,9 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                                 out.print("<h4><p>Description: </p></h4>");
                                 out.print("<p style='padding-left:1em'>" + row.get(3) + "</p>");
                                 out.print("<h4><p>Score: </p></h4>");
-                                out.print("<p style='padding-left:1em'>" + row.get(2) + "</p>");
+                                out.print("<p id='"+ row.get(0) +"-p' style='padding-left:1em'>" + row.get(2) + "</p>");
                                 out.print("<div class='btn-group'>");
-                                out.print("<button class='btn btn-primary'> +1</button>");
+                                out.print("<button class='btn btn-primary' id='" + row.get(0) +"'> +1</button>");
                                 out.print("<button class='btn btn-primary' data-toggle='collapse' data-target='#demo'>Read More</button>");
                                 out.print("</div>");
 
@@ -98,6 +97,8 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                                     out.print("<li class='list-group-item'>" + msgRow.get(1)+": " + msgRow.get(3) + "</li>");                                    
                                     j=j+1; 
                                 }
+                                out.print("<li class='list-group-item'><font color='yellowgreen'>Say: </font><input type='text' name='" + row.get(0) +"' value=' ' placeholder='your comment...'></input></li>");                                    
+
                                 out.print("</ul>");
                                 out.print("</div>");
 
