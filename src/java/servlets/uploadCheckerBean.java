@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hw6;
+package servlets;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -56,10 +56,10 @@ public class uploadCheckerBean implements uploadCheckerBeanLocal {
             //open the DBMS and insert the record
             try {
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
-                String connectionURL = "jdbc:derby://localhost:1527/Assignment6";
-                conn = DriverManager.getConnection(connectionURL, "TEST", "TEST");
+                String connectionURL = "jdbc:derby://localhost:1527/StandingOut";
+                conn = DriverManager.getConnection(connectionURL, "test", "test");
                 st = conn.createStatement();
-                String q1 = new String("INSERT INTO APP.pics (url, score, description, timestamp)"
+                String q1 = new String("INSERT INTO TEST.PICS (url, score, description, timestamp)"
                         + " VALUES ('"
                         + clean_url + "',"
                         + clean_score + ", '"

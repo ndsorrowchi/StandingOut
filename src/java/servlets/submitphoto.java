@@ -1,4 +1,4 @@
-package com.hw6;
+package servlets;
 
 import java.io.*;
 import java.net.*;

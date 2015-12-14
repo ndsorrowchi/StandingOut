@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
                 <li><a href="x.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                 <li><a href="x.html"><span class="glyphicon glyphicon-info-sign"></span>How to make good Resume</a></li>
-                <li><a href="x.html"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
+                <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
                 <li><a href="x.html"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li>
             </ul>
         </div>

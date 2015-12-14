@@ -19,20 +19,46 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Photo Gallery</title>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
         <!-- Optional theme -->
+        <script src="include/js/jquery-2.1.3.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
+        <script src="include/js/bootstrap.min.js"></script>
+        <script src="js/gallery.js" ></script>
+
     </head>
     <body>
+
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mynav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                    data-target="#navbar-collapse">
+                <span class="sr-only">switch</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#mynav">StandingOut</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="x.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="x.html"><span class="glyphicon glyphicon-info-sign"></span>How to make good Resume</a></li>
+                <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
+                <li><a href="x.html"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
         <div class="col-lg-10" style="float: none; margin: 0 auto;">
             <form method ="post" action = "submitphoto" >
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h1>Welcome to our resume gallery</h1></div>
-                    <table class="table" border="1">
+                <h1>Welcome to our resume gallery</h1>
+                <div class="table-responsive">
+                    <table class="table">
                         <tbody>
                             <%
                                 ArrayList rows = new ArrayList();
@@ -42,10 +68,10 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                                 int i = 0;
                                 while (i < rows.size()) {
                                     ArrayList row = (ArrayList) rows.get(i);
-                                    out.print("<tr>");
+                                    out.print("<tr id='" + row.get(0) + "-" + i + "'>");
                                     out.print("<td>");
 
-                                    out.print("<img src='" + row.get(1) + "' style='width:240px;height:160px'></img>");
+                                    out.print("<img src='" + row.get(1) + "' style='width:600px;height:auto;'></img>");
                                     out.print("</td>");
 
                                     out.print("<td>");
@@ -54,61 +80,21 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
 
                                     out.print("</td>");
 
-                                    if (i + 1 < rows.size()) {
-                                        i = i + 1;
-                                        row = (ArrayList) rows.get(i);
-                                        out.print("<td>");
-
-                                        out.print("<img src='" + row.get(1) + "' style='width:240px;height:160px'></img>");
-                                        out.print("</td>");
-
-                                        out.print("<td>");
-                                        out.print("<p>Score: " + row.get(2) + "</p>");
-                                        out.print("<p>Description: " + row.get(3) + "</p>");
-
-                                        out.print("</td>");
-                                    }
-                                    else{
-                                        out.print("<td></td>");
-                                        out.print("<td></td>");
-
-                                    }
-
-                                    if (i + 1 < rows.size()) {
-                                        i = i + 1;
-                                        row = (ArrayList) rows.get(i);
-                                        out.print("<td>");
-
-                                        out.print("<img src='" + row.get(1) + "' style='width:240px;height:160px'></img>");
-                                        out.print("</td>");
-
-                                        out.print("<td>");
-                                        out.print("<p>Score: " + row.get(2) + "</p>");
-                                        out.print("<p>Description: " + row.get(3) + "</p>");
-
-                                        out.print("</td>");
-                                    } 
-                                    else{
-                                        out.print("<td></td>");
-                                        out.print("<td></td>");
-                                    }
-                                    i=i+1;
+                                    i = i + 1;
                                     out.print("</tr>");
                                 }
                             %>
-                            
-                            <tr>
-                            <td colspan="6" style="color: red" align="center">
-                                    <h4>Submit your resume
-                                    <a href="index.jsp"> here</a>
-                                    </h4>
-                                </td>
-                                </tr>
+
+
                         </tbody>
                     </table>
-
+                        <h4 align="center">Submit your resume
+                            <a href="upload.jsp"> here</a>
+                        </h4>
                 </div>
             </form>
         </div>
-    </body>
+    </div>
+
+</body>
 </html>

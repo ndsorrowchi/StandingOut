@@ -1,4 +1,4 @@
-package com.hw6;
+package servlets;
 
 import java.io.*;
 import java.net.*;
@@ -26,12 +26,11 @@ public class photoGallery extends HttpServlet {
         
          try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
-            String connectionURL = "jdbc:derby://localhost:1527/assignment6";
-            conn = DriverManager.getConnection(connectionURL, "TEST", "TEST");
+            String connectionURL = "jdbc:derby://localhost:1527/StandingOut";
+            conn = DriverManager.getConnection(connectionURL, "test", "test");
             st = conn.createStatement();
-            String q1 = new String("SELECT * FROM APP.pics");
+            String q1 = new String("SELECT * FROM TEST.PICS order by SCORE Desc");
             rs =  st.executeQuery(q1);
-            
         }
         catch( ClassNotFoundException cnfe)
         {

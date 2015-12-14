@@ -2,16 +2,15 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>submitphoto</servlet-name>
-        <servlet-class>com.hw6.submitphoto</servlet-class>
+        <servlet-class>servlets.submitphoto</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>submitphoto</servlet-name>
         <url-pattern>/submitphoto</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>photoGallery</servlet-name>
-        <servlet-class>com.hw6.photoGallery</servlet-class>
+        <servlet-class>servlets.photoGallery</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>photoGallery</servlet-name>
