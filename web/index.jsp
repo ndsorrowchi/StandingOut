@@ -1,64 +1,100 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
-<%--
-The taglib directive below imports the JSTL library. If you uncomment it,
-you must also add the JSTL library to the project. The Add Library... action
-on Libraries node in Projects view can be used to add the JSTL 1.1 library.
---%>
-<%--
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%-- 
+    Document   : index
+    Created on : 2015-12-13, 17:56:54
+    Author     : chiming
 --%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Photo Gallery</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="col-lg-10" style="float: none; margin: 0 auto;">
-            <form method ="post" action = "submitphoto" >
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h1>Submit your resume</h1></div>
-                    <table class="table" border="1">
-                        <tbody>
-                            <tr>
-                                <td>URL:</td>
-                                <td><input type="text" name="url" value="" size="100" /></td>
-                            </tr>
-                            <tr>
-                                <td>Score:</td>
-                                <td><input type="text" name="score" value="" size="50" /></td>
-                            </tr>
-                            <tr>
-                                <td>Description:</td>
-                                <td><textarea name="description" rows="8" cols="50">
-                                    </textarea></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><input type="submit" value="Submit" name="Submit" /></td>
-                            </tr>
-                            
-                            <td colspan="2" style="color: red" align="center">
-                                    <h4>Go to resume gallery
-                                    <a href="photoGallery"> here</a>
-                                    </h4>
-                            </td>
-                        </tbody>
-                    </table>
-                </div>
-            </form>
+<head>
+    <title>StandingOut Social CV</title>
+    <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
+</head>
+<body onload="initfield()" style="background-image: url('include/img/bg.jpg')">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mynav" style="margin-bottom: 0px;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                    data-target="#navbar-collapse">
+                <span class="sr-only">switch</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#mynav">StandingOut</a>
         </div>
-    </body>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="x.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="x.html"><span class="glyphicon glyphicon-info-sign"></span>How to make good Resume</a></li>
+                <li><a href="x.html"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
+                <li><a href="x.html"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="width:100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1 style="margin-top:20%;color: #FF9933"><big>StandingOut</big></h1> 
+                    <h5 style="color: #FF9933"><big>Submit your resume design
+                            <br> and interact with other resume designers.</big></h5>                 
+                </div>
+                <div class="col-sm-4">
+                    <ul class="nav nav-tabs" style="margin-top:20px;">
+                        <li class="active"><a data-toggle="tab" href="#tab-login">Login</a></li>
+                        <li><a data-toggle="tab" href="#tab-register">Register</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-login" class="tab-pane fade in active">
+                            <br/>
+                            <form role="form" action="Login" method="post">
+                                <div class="form-group">
+                                    <label for="login-username">Email Address</label>
+                                    <input id="login-username" type="email" name="username" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-password">Password</label>
+                                    <input id="login-password" type="password" name="password" class="form-control" required />
+                                </div>
+                                <input type="submit" value="sign in" class="btn btn-primary pull-right"/>
+                            </form>
+                        </div>
+                        <div id="tab-register" class="tab-pane fade">
+                            <br/>
+                            <form role="form" action="Register" method="post">
+                                <div class="form-group">
+                                    <label for="register-username">Email Address</label>
+                                    <input id="register-username" maxlength="40" type="email" name="username" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-nickname">Display Name</label>
+                                    <input id="register-nickname" type="text" name="nickname" maxlength="30" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-password">Password</label>
+                                    <input maxlength="16" id="register-password" type="password" name="password" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm Password</label>
+                                    <input maxlength="16" id="confirm-password" type="password" name="confirm-password" class="form-control" required />
+                                </div>
+                                <input type="submit" value="sign up" class="btn btn-success pull-right"/>
+                            </form>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+
+        
+<script src="include/js/jquery-2.1.3.min.js"></script>
+<script src="include/js/bootstrap.min.js"></script>
+<script src="include/js/validation.js"></script>
+</body>
 </html>

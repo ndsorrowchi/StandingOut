@@ -12,9 +12,12 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
     <title>Oops...</title>
-    <%String errmsg=(String)request.getAttribute("errmsg");
+    <%
+        String errmsg=(String)request.getAttribute("errmsg");
         if(errmsg==null)
             errmsg="Unexpected Error";
+        response.setHeader("Refresh", "5; URL=index.jsp");
+        
     %>
 </head>
 <body>
@@ -27,6 +30,7 @@
             </div>
             <div class="col-sm-6">
                 <h3 class="text-center text-danger" style="margin-top:50%;"><%=errmsg%></h3>
+                <h4>redirecting to login...</h4>
             </div>
             <div class="col-sm-1"></div>
         </div>
