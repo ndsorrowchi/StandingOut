@@ -1,6 +1,8 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.HashMap" %>
+
 
 <%--
 The taglib directive below imports the JSTL library. If you uncomment it,
@@ -27,8 +29,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
         <script src="include/js/bootstrap.min.js"></script>
-        <script src="js/gallery.js" ></script>
-
+        <script src="include/js/gallery.js" ></script>
     </head>
     <body>
 
@@ -55,44 +56,65 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
 
     <div class="container">
         <div class="col-lg-10" style="float: none; margin: 0 auto;">
-            <form method ="post" action = "submitphoto" >
-                <h1>Welcome to our resume gallery</h1>
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                            <%
-                                ArrayList rows = new ArrayList();
+            <h1>Welcome to our resume gallery</h1>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <%
+                            ArrayList rows = new ArrayList();
 
-                                rows = (ArrayList) request.getAttribute("rows");
+                            rows = (ArrayList) request.getAttribute("rows");
+                            HashMap msg = (HashMap) request.getAttribute("msg");
 
-                                int i = 0;
-                                while (i < rows.size()) {
-                                    ArrayList row = (ArrayList) rows.get(i);
-                                    out.print("<tr id='" + row.get(0) + "-" + i + "'>");
-                                    out.print("<td>");
 
-                                    out.print("<img src='" + row.get(1) + "' style='width:600px;height:auto;'></img>");
-                                    out.print("</td>");
+                            int i = 0;
+                            while (i < rows.size()) {
+                                ArrayList row = (ArrayList) rows.get(i);
+                                out.print("<tr id='" + row.get(0) + "-" + i + "'>");
+                                out.print("<td class='col-lg-6'>");
 
-                                    out.print("<td>");
-                                    out.print("<p>Score: " + row.get(2) + "</p>");
-                                    out.print("<p>Description: " + row.get(3) + "</p>");
+                                out.print("<img src='" + row.get(1) + "' style='width:600px;height:auto;'></img>");
+                                out.print("</td>");
 
-                                    out.print("</td>");
+                                out.print("<td class='col-lg-4' align='left'>");
+                                out.print("<h4><p>Description: </p></h4>");
+                                out.print("<p style='padding-left:1em'>" + row.get(3) + "</p>");
+                                out.print("<h4><p>Score: </p></h4>");
+                                out.print("<p style='padding-left:1em'>" + row.get(2) + "</p>");
+                                out.print("<div class='btn-group'>");
+                                out.print("<button class='btn btn-primary'> +1</button>");
+                                out.print("<button class='btn btn-primary' data-toggle='collapse' data-target='#demo'>Read More</button>");
+                                out.print("</div>");
 
-                                    i = i + 1;
-                                    out.print("</tr>");
+                                out.print("<div id='demo' class='collapse'>");
+                                
+                                ArrayList messages = (ArrayList)msg.get(row.get(0));
+                                System.out.println(messages.toString());
+                                int j = 0;
+                                
+                                out.print("<ul class='list-group' style='margin-top:20px;'> ");
+                                while(j<messages.size()) {
+                                    ArrayList msgRow = (ArrayList) messages.get(j);
+                                    out.print("<li class='list-group-item'>" + msgRow.get(1)+": " + msgRow.get(3) + "</li>");                                    
+                                    j=j+1; 
                                 }
-                            %>
+                                out.print("</ul>");
+                                out.print("</div>");
+
+                                out.print("</td>");
+                                i = i + 1;
+                                out.print("</tr>");
+                            }
+                        %>
 
 
-                        </tbody>
-                    </table>
-                        <h4 align="center">Submit your resume
-                            <a href="upload.jsp"> here</a>
-                        </h4>
-                </div>
-            </form>
+                    </tbody>
+                </table>
+                <h4 align="center">Submit your resume
+                    <a href="upload.jsp"> here</a>
+                </h4>
+            </div>
+
         </div>
     </div>
 
