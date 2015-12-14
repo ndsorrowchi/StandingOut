@@ -7,8 +7,10 @@ package servlets;
 
 import beans.userbean;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.OutputStream;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,49 +38,42 @@ public class ImgHandler extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("image/jpg");
-        try (PrintWriter out = response.getWriter()) {
+        try (OutputStream out = response.getOutputStream()) {
             /* TODO output your page here. You may use following sample code. */
             String i=(String) request.getAttribute("imgid");//NumberFormatException
             int id=Integer.parseInt(i);
+            
+            RequestDispatcher rderr = getServletContext().getRequestDispatcher("/error.jsp");
             
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String connectionURL = "jdbc:derby://localhost:1527/StandingOut";
             con = DriverManager.getConnection(connectionURL, "test", "test");
             Statement st = con.createStatement();
-            String sql="select * from PICS where PICID='"+usr+"'";
+            String sql="select image from PICS where PICID='"+id+"'";
             ResultSet sqlres=st.executeQuery(sql);
             int count =0;
+            byte[] arrdata = null;
             while(sqlres.next())
             {
+                Blob b = sqlres.getBlob(1);
+                arrdata=b.getBytes(1L, (int)b.length());
                 count++;
             }
-           if(count==0)
+            if(count!=0)
             {
-                StringBuffer tmp=new StringBuffer("insert into users values('");
-                tmp.append(usr);
-                tmp.append("','");
-                tmp.append(pwd);
-                tmp.append("','");
-                tmp.append(alias);
-                tmp.append("')");
-                st.executeUpdate(tmp.toString());
-
-                userbean msb=new userbean();
-
-                msb.setUid(usr);
-                msb.setUname(alias);
-                HttpSession session=request.getSession(true);
-                session.setAttribute("usrbn", msb);
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/gallery.jsp");
-                rd.forward(request, response);
+                out.write(arrdata);
+                out.flush(); 
+                out.close();
             }
             else
             {
-                request.setAttribute("errmsg", "This Email is already registered.");
-                rderr.forward(request, response);
+                out.close();
             }            
             
-            PdfHandler.convert(arr);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ImgHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ImgHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
