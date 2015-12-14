@@ -4,6 +4,10 @@
         <servlet-name>submitphoto</servlet-name>
         <servlet-class>servlets.submitphoto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImgHandler</servlet-name>
+        <servlet-class>servlets.ImgHandler</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>submitphoto</servlet-name>
         <url-pattern>/submitphoto</url-pattern>
@@ -31,6 +35,9 @@
     <servlet-mapping>
         <servlet-name>updateMessage</servlet-name>
         <url-pattern>/updateMessage</url-pattern>
+    <servlet-mapping>
+        <servlet-name>ImgHandler</servlet-name>
+        <url-pattern>/ImgHandler</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

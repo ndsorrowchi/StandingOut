@@ -12,8 +12,14 @@
     <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
+    
 </head>
-<body onload="initfield()" style="background-image: url('include/img/bg.jpg')">
+<body onload="initfield()" 
+      style="background-image: url('include/img/bg.jpg');
+      -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;">
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mynav" style="margin-bottom: 0px;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" 

@@ -7,7 +7,6 @@
 
 
 
-
 $(document).scroll(function () {
     //console.log($(window).scrollTop());
     //if ($(window).scrollTop() + $(window).height() == $(document).height()) {
@@ -68,4 +67,12 @@ $(document).ready(function () {
             });
         }
     });
+});
+$(document).scroll(function(){
+    
+    console.log($(window).scrollTop());
+    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        // Reached page bottom. Call the ajax function or any other foo here.
+        
+    }
 });

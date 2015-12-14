@@ -7,3 +7,6 @@ nbproject/private/private.properties
 nbproject/private/*
 
 !*.class
+
+
+*.class
