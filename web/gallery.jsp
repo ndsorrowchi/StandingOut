@@ -72,20 +72,20 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                                 out.print("<tr id='" + row.get(0) + "-" + i + "'>");
                                 out.print("<td class='col-lg-6'>");
 
-                                out.print("<img src='" + row.get(1) + "' style='width:600px;height:auto;'></img>");
+                                out.print("<img src='ImgHandler?imgid=" + row.get(0) + "' style='width:600px;height:auto;'></img>");
                                 out.print("</td>");
 
                                 out.print("<td class='col-lg-4' align='left'>");
                                 out.print("<h4><p>Description: </p></h4>");
-                                out.print("<p style='padding-left:1em'>" + row.get(3) + "</p>");
+                                out.print("<p style='padding-left:1em'>" + row.get(2) + "</p>");
                                 out.print("<h4><p>Score: </p></h4>");
-                                out.print("<p id='"+ row.get(0) +"-p' style='padding-left:1em'>" + row.get(2) + "</p>");
+                                out.print("<p id='"+ row.get(0) +"-p' style='padding-left:1em'>" + row.get(1) + "</p>");
                                 out.print("<div class='btn-group'>");
                                 out.print("<button class='btn btn-primary' id='" + row.get(0) +"'> +1</button>");
-                                out.print("<button class='btn btn-primary' data-toggle='collapse' data-target='#demo'>Read More</button>");
+                                out.print("<button class='btn btn-primary' data-toggle='collapse' data-target='#demo-"+ row.get(0) +"'>Read More</button>");
                                 out.print("</div>");
 
-                                out.print("<div id='demo' class='collapse'>");
+                                out.print("<div id='demo-"+ row.get(0) + "' class='collapse'>");
                                 
                                 ArrayList messages = (ArrayList)msg.get(row.get(0));
                                 System.out.println(messages.toString());

@@ -5,19 +5,23 @@ import java.net.*;
 import java.util.Date;
 import java.util.regex.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.ejb.EJB;
+import javax.servlet.annotation.MultipartConfig;
+import javax.sql.rowset.serial.SerialBlob;
+import org.apache.pdfbox.io.IOUtils;
+import utils.PdfHandler;
 
 /**
  *
  * @author chunchung
  */
+@MultipartConfig
 public class submitphoto extends HttpServlet {
-
-    @EJB
-    private uploadCheckerBeanLocal uploadCheckerBean;
 
     private Connection conn;
 
@@ -31,10 +35,41 @@ public class submitphoto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String uploadStatus = uploadCheckerBean.checkUpload(request.getParameter("url"), request.getParameter("score"), request.getParameter("description"));
-        
-        request.setAttribute("status", uploadStatus);
-        RequestDispatcher requestDispatcher; 
+        Date now = new Date();
+        java.text.SimpleDateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String clean_url, clean_score, clean_description;
+        Statement st;
+
+        //open the DBMS and insert the record
+        try {
+            InputStream fileContent = request.getPart("image").getInputStream();
+            byte[] bytes = IOUtils.toByteArray(fileContent);
+            byte[] imgbytes = PdfHandler.convert(bytes);
+
+            Blob blob = new SerialBlob(imgbytes);
+
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String connectionURL = "jdbc:derby://localhost:1527/StandingOut";
+            conn = DriverManager.getConnection(connectionURL, "test", "test");
+            st = conn.createStatement();
+            String q1 = new String("INSERT INTO TEST.PICS (score, description, timestamp, image)"
+                    + " VALUES ("
+                    + request.getParameter("score") + ", '"
+                    + request.getParameter("description") + "', '"
+                    + df.format(now) + "',"
+                    + "?)");
+
+            PreparedStatement statement = conn.prepareStatement(q1);
+            statement.setBinaryStream(1, new ByteArrayInputStream(imgbytes), imgbytes.length);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        request.setAttribute("status", "done");
+        RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("/submit.jsp");
         requestDispatcher.forward(request, response);
     }

@@ -50,14 +50,14 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
         </div>
     </nav>
     <div class="col-lg-10" style="float: none; margin: 0 auto;">
-        <form method ="post" action = "submitphoto" >
+        <form method ="post" action = "submitphoto"  enctype="multipart/form-data">
             <div class="panel panel-default">
                 <div class="panel-heading"><h1>Submit your resume</h1></div>
                 <table class="table" border="1">
                     <tbody>
                         <tr>
-                            <td>URL:</td>
-                            <td><input type="text" name="url" value="" size="100" /></td>
+                            <td>Upload your pdf:</td>
+                            <td><input type="file" name="image" value="" /></td>
                         </tr>
                         <tr>
                             <td>Score:</td>

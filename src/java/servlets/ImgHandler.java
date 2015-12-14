@@ -37,10 +37,14 @@ public class ImgHandler extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("getFILE");
         response.setContentType("image/jpg");
         try (OutputStream out = response.getOutputStream()) {
             /* TODO output your page here. You may use following sample code. */
-            String i=(String) request.getAttribute("imgid");//NumberFormatException
+            String i=(String) request.getParameter("imgid");//NumberFormatException
+            
+            System.out.println(request.getParameter("imgid"));
             int id=Integer.parseInt(i);
             
             RequestDispatcher rderr = getServletContext().getRequestDispatcher("/error.jsp");
@@ -49,7 +53,7 @@ public class ImgHandler extends HttpServlet {
             String connectionURL = "jdbc:derby://localhost:1527/StandingOut";
             con = DriverManager.getConnection(connectionURL, "test", "test");
             Statement st = con.createStatement();
-            String sql="select image from PICS where PICID='"+id+"'";
+            String sql="select IMAGE from TEST.PICS where PICID="+id+"";
             ResultSet sqlres=st.executeQuery(sql);
             int count =0;
             byte[] arrdata = null;

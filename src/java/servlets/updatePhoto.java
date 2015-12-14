@@ -16,9 +16,6 @@ import javax.ejb.EJB;
  */
 public class updatePhoto extends HttpServlet {
 
-    @EJB
-    private uploadCheckerBeanLocal uploadCheckerBean;
-
     private Connection conn;
 
     /**

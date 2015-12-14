@@ -16,26 +16,40 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Photo Gallery</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <script src="include/js/jquery-2.1.3.min.js"></script>
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
+        <script src="include/js/bootstrap.min.js"></script>
+        <script src="include/js/gallery.js" ></script>   
     </head>
     <body>
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mynav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                    data-target="#navbar-collapse">
+                <span class="sr-only">switch</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#mynav">StandingOut</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="x.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="x.html"><span class="glyphicon glyphicon-info-sign"></span>How to make good Resume</a></li>
+                <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
+                <li><a href="x.html"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li>
+            </ul>
+        </div>
+    </nav>
         <div class="col-lg-10" style="float: none; margin: 0 auto;">
             <form method ="post" action = "submitphoto" >
                 <div class="panel panel-default">
                     <div class="panel-heading"><h1>Hello, Your submit result</h1></div>
                     <table class="table" border="1">
                         <tbody>
-                            <tr>
-                                <td>URL:</td>
-                                <td><%= request.getParameter("url")%></td>
-                            </tr>
                             <tr>
                                 <td>Score:</td>
                                 <td><%= request.getParameter("score")%></td>

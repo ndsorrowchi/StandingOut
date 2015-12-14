@@ -17,9 +17,6 @@ import javax.ejb.EJB;
  */
 public class updateMessage extends HttpServlet {
 
-    @EJB
-    private uploadCheckerBeanLocal uploadCheckerBean;
-
     private Connection conn;
 
     /**
