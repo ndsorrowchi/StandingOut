@@ -6,13 +6,18 @@
 package servlets;
 
 import beans.userbean;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URL;
+import java.nio.file.Files;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import static javax.servlet.SessionTrackingMode.URL;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -71,7 +76,19 @@ public class ImgHandler extends HttpServlet {
             }
             else
             {
-                out.close();
+                try{
+                    URL imageURL = this.getClass().getClassLoader().getResource("img-not-found.jpg");
+                    File f=new File(imageURL.getFile());
+                    byte[] nodata = Files.readAllBytes(f.toPath());
+                    out.write(nodata);
+                    out.flush();
+                    out.close();
+                }
+                catch(FileNotFoundException e)
+                {
+                    out.close();
+                }
+                
             }            
             
         } catch (ClassNotFoundException ex) {

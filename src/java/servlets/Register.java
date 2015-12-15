@@ -76,7 +76,7 @@ public class Register extends HttpServlet {
                     msb.setUname(alias);
                     HttpSession session=request.getSession(true);
                     session.setAttribute("usrbn", msb);
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/gallery.jsp");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/photoGallery");
                     rd.forward(request, response);
                 }
                 else
