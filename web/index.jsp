@@ -19,7 +19,7 @@
             userbean ub=(userbean)session.getAttribute("usrbn");
             if(ub.getUname()!=null&&ub.getUid()!=null&&!ub.getUid().equals("")&&!ub.getUname().equals(""))
             {
-                response.setHeader("Refresh", "1; URL=home.jsp");
+                response.setHeader("Refresh", "1; URL=home");
             }
         }      
     %>    
@@ -43,7 +43,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
-                <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                 <li><a href="cv-builder.html"><span class="glyphicon glyphicon-pencil"></span>Resume Builder</a></li>
                 <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
                 <li><a href="howto.html"><span class="glyphicon glyphicon-info-sign"></span>Help</a></li>

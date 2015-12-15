@@ -48,6 +48,14 @@
         <servlet-name>updateMessage</servlet-name>
         <url-pattern>/updateMessage</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>home</servlet-name>
+        <servlet-class>servlets.home</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>home</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ImgHandler</servlet-name>
         <url-pattern>/ImgHandler</url-pattern>

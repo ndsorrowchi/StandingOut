@@ -13,22 +13,6 @@
     <title>JSP Page</title>
     <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
-    <%
-        if(session.getAttribute("usrbn")==null)
-            response.setHeader("Refresh", "1; URL=index.jsp");
-        else
-        {
-            if(session.getAttribute("usrbn")!=null)
-            {
-                userbean ub=(userbean)session.getAttribute("usrbn");
-                boolean x=ub.getUname()!=null&&ub.getUid()!=null&&!ub.getUid().equals("")&&!ub.getUname().equals("");
-                if(!x)
-                {
-                    response.setHeader("Refresh", "1; URL=index.jsp");
-                }
-            } 
-        }
-    %> 
     <jsp:useBean id="usrbn" class="beans.userbean" scope="session"/>
 </head>
 <body>
@@ -45,7 +29,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
-                <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                 <li><a href="cv-builder.html"><span class="glyphicon glyphicon-pencil"></span>Resume Builder</a></li>
                 <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
                 <li><a href="howto.html"><span class="glyphicon glyphicon-info-sign"></span>Help</a></li>
