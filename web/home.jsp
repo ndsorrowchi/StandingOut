@@ -50,8 +50,9 @@
                             <br> and interact with other resume designers.</big></h5>
                     </div>
                 <br><br><br>
-                <a href="upload.jsp" class="btn btn-default pull-left">Upload new resume</a>
-                <a href="photoGallery" class="btn btn-warning pull-right">Go To Gallery</a>
+                <a href="upload.jsp" class="btn btn-default pull-left" style="margin-right: 5px;">Upload new resume</a>
+                <a href="photoGallery" class="btn btn-warning pull-left" style="margin-right: 5px;">Go To Gallery</a>
+                <a href="Logout" class="btn btn-danger pull-right">Logout</a>
             </div>
             <div class="col-sm-1"></div>
     </div>

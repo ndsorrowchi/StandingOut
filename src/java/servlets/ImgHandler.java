@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -88,7 +89,10 @@ public class ImgHandler extends HttpServlet {
                 {
                     out.close();
                 }
-                
+                catch(NoSuchFileException e)
+                {
+                    out.close();
+                }                
             }            
             
         } catch (ClassNotFoundException ex) {

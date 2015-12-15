@@ -76,6 +76,7 @@ public class Register extends HttpServlet {
                     msb.setUname(alias);
                     HttpSession session=request.getSession(true);
                     session.setAttribute("usrbn", msb);
+
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/home.jsp");
                     rd.forward(request, response);
                 }
