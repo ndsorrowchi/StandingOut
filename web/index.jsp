@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
     <%
         if(session.getAttribute("usrbn")!=null)
-            response.setHeader("Refresh", "1; URL=photoGallery");
+            response.setHeader("Refresh", "1; URL=home.jsp");
     %>    
 </head>
 <body onload="initfield()" 
