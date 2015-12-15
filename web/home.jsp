@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
     <%
         if(session.getAttribute("usrbn")==null)
-            response.setHeader("Refresh", "1; URL=login.jsp");
+            response.setHeader("Refresh", "1; URL=index.jsp");
     %> 
     <jsp:useBean id="usrbn" class="beans.userbean" scope="session"/>
 </head>
