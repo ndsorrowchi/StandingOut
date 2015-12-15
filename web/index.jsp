@@ -39,7 +39,7 @@
                 <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                 <li><a href="cv-builder.html"><span class="glyphicon glyphicon-pencil"></span>Resume Builder</a></li>
                 <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
-                <li><a href="#mynav"><span class="glyphicon glyphicon-info-sign"></span>Help</a></li>
+                <li><a href="howto.html"><span class="glyphicon glyphicon-info-sign"></span>Help</a></li>
             </ul>
         </div>
     </nav>
