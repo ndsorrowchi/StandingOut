@@ -1,8 +1,6 @@
 /chunchung/nbproject/private/
 /chunchung/build/
-nbproject/private/private.xml
 
-nbproject/private/private.properties
 
 nbproject/private/*
 
@@ -11,4 +9,9 @@ build/*
 
 *.class
 
+
+nbproject/private/private.properties
+
 nbproject/private/private.xml
+
+nbproject/project.properties
