@@ -19,12 +19,35 @@
         String redirect=(String)request.getAttribute("redirect");
         if(redirect==null)
             redirect="home";
+        String target=(String)request.getAttribute("target");
+        if(target!=null)
+            redirect=target;
                 
         response.setHeader("Refresh", "5; URL="+redirect);
         
     %>
 </head>
 <body>
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mynav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                    data-target="#navbar-collapse">
+                <span class="sr-only">switch</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#mynav">StandingOut</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
+                <li><a href="home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="cv-builder.html"><span class="glyphicon glyphicon-pencil"></span>Resume Builder</a></li>
+                <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
+                <li><a href="howto.html"><span class="glyphicon glyphicon-info-sign"></span>Help</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="container" style="height:100%;">
         <div class="row">
             <div class="col-sm-1"></div>
