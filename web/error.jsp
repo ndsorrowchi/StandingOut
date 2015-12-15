@@ -18,7 +18,7 @@
             errmsg="Unexpected Error";
         String redirect=(String)request.getAttribute("redirect");
         if(redirect==null)
-            redirect="index.jsp";
+            redirect="home.jsp";
                 
         response.setHeader("Refresh", "5; URL="+redirect);
         

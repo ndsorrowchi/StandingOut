@@ -41,11 +41,11 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
             <a class="navbar-brand" href="#mynav">StandingOut</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="x.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                <li><a href="x.html"><span class="glyphicon glyphicon-info-sign"></span>How to make good Resume</a></li>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
+                <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="cv-builder.html"><span class="glyphicon glyphicon-pen"></span>Resume Builder</a></li>
                 <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
-                <li><a href="x.html"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li>
+                <li><a href="howto.html"><span class="glyphicon glyphicon-info-sign"></span>Help</a></li>
             </ul>
         </div>
     </nav>
@@ -61,7 +61,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                         </tr>
                         <tr>
                             <td>Score:</td>
-                            <td><input type="text" name="score" value="" size="50" /></td>
+                            <td><input type="number" name="score" value="" min="0" max="100"/></td>
                         </tr>
                         <tr>
                             <td>Description:</td>

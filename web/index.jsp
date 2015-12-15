@@ -36,10 +36,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
-                <li><a href="x.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                <li><a href="x.html"><span class="glyphicon glyphicon-info-sign"></span>How to make good Resume</a></li>
+                <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="cv-builder.html"><span class="glyphicon glyphicon-pen"></span>Resume Builder</a></li>
                 <li><a href="photoGallery"><span class="glyphicon glyphicon-picture"></span>Gallery</a></li>
-                <li><a href="x.html"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li>
+                <li><a href="#mynav"><span class="glyphicon glyphicon-info-sign"></span>Help</a></li>
             </ul>
         </div>
     </nav>

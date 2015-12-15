@@ -70,7 +70,7 @@ public class Login extends HttpServlet {
                     msb.setUname(alias);
                     HttpSession session=request.getSession(true);
                     session.setAttribute("usrbn", msb);
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/photoGallery");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/home.jsp");
                     rd.forward(request, response);
                 }
                 else if(count!=0 && !pwd.equals(dbpwd))
