@@ -20,6 +20,14 @@
         <servlet-name>photoGallery</servlet-name>
         <url-pattern>/photoGallery</url-pattern>
     </servlet-mapping>
+        <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>servlets.Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>updatePhoto</servlet-name>
         <servlet-class>servlets.updatePhoto</servlet-class>
