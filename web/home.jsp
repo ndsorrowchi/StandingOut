@@ -4,6 +4,7 @@
     Author     : chiming
 --%>
 
+<%@page import="beans.userbean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,18 @@
     <%
         if(session.getAttribute("usrbn")==null)
             response.setHeader("Refresh", "1; URL=index.jsp");
+        else
+        {
+            if(session.getAttribute("usrbn")!=null)
+            {
+                userbean ub=(userbean)session.getAttribute("usrbn");
+                boolean x=ub.getUname()!=null&&ub.getUid()!=null&&!ub.getUid().equals("")&&!ub.getUname().equals("");
+                if(!x)
+                {
+                    response.setHeader("Refresh", "1; URL=index.jsp");
+                }
+            } 
+        }
     %> 
     <jsp:useBean id="usrbn" class="beans.userbean" scope="session"/>
 </head>

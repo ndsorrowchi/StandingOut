@@ -17,7 +17,7 @@
         if(session.getAttribute("usrbn")!=null)
         {
             userbean ub=(userbean)session.getAttribute("usrbn");
-            if(ub.getUname()!=null)
+            if(ub.getUname()!=null&&ub.getUid()!=null&&!ub.getUid().equals("")&&!ub.getUname().equals(""))
             {
                 response.setHeader("Refresh", "1; URL=home.jsp");
             }
