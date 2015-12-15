@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" import="java.sql.*,beans.userbean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,13 @@
     <link rel="stylesheet" type="text/css" href="include/css/bootstrap.min.css"/>
     <%
         if(session.getAttribute("usrbn")!=null)
-            response.setHeader("Refresh", "1; URL=home.jsp");
+        {
+            userbean ub=(userbean)session.getAttribute("usrbn");
+            if(ub.getUname()!=null)
+            {
+                response.setHeader("Refresh", "1; URL=home.jsp");
+            }
+        }      
     %>    
 </head>
 <body onload="initfield()" 
